@@ -1,17 +1,17 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+  // new_date starts now
+  Session.setDefault('new_date', new Date());
 
   Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+    time_at_which_button_was_clicked_most_recently: function () {
+      return Session.get('new_date');
     }
   });
 
   Template.hello.events({
     'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+      // increment the new_date when button is clicked
+      Session.set('new_date', new Date());
     }
   });
 }
